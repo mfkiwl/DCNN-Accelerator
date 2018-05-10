@@ -34,8 +34,10 @@ begin
 		cnt       <= init_cnt;
 		dma_start <= '1';
 		read_win  <= '0';
+		done <= '0';
 	elsif reset = '1' then
 		cnt <= init_cnt;
+		done <= '0';
 	end if;
 end process;
 
