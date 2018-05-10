@@ -18,5 +18,5 @@ begin
 		port map(clk, win, fil, conv_data);
 	pool : entity work.pool
 		port map(clk, ws, win, conv_data);
-	data <= conv_data when algo = '0' else pool_data;
+	data <= conv_data when algo  = '0' else pool_data;
 end acc_arch;
