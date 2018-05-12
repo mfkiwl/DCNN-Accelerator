@@ -67,6 +67,6 @@ begin
 		port map(win(4, 4), fil(4, 4), mul(4, 4));
 	
 	adder : entity work.adder
-		port map(mul,, adderOut);
+		port map(mul,ws, adderOut);
 	data <= adderOut(7 downto 0);
 end conv_arch;

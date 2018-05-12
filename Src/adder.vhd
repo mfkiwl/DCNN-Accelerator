@@ -31,7 +31,7 @@ begin
 	new_win(6) <= "00000" & win(1, 1) when ws = '1' else (others => '0');
 	new_win(7) <= "00000" & win(1, 2) when ws = '1' else (others => '0');
 	new_win(8) <= "00000" & win(1, 3) when ws = '1' else (others => '0');
-	new_win(9) <= "00000" & win(1, 4);
+	new_win(9) <= "00000" & win(1, 4) when ws = '1' else (others => '0');
 	new_win(10) <= "00000" & win(2, 0) when ws = '1' else (others => '0');
 	new_win(11) <= "00000" & win(2, 1) when ws = '1' else (others => '0');
 	new_win(12) <= "00000" & win(2, 2);
