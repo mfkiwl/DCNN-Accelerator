@@ -11,7 +11,7 @@ architecture dff_beta_arch of dff_beta is
 begin
 	process(clk, rst)
 	begin
-		if rising_edge(rst) then
+		if rst = '1' then
 			q <= init;
 		elsif falling_edge(clk) then
 			if enable = '1' then
