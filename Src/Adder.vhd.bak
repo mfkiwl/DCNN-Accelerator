@@ -22,7 +22,7 @@ architecture adder_arch of adder is
 	type win_type is array (0 to 24) of std_logic_vector(12 downto 0);
 	signal new_win      : win_type    := (others => "0000000000000");
 begin
-	new_win(0) <= "00000" & win(0, 0) when ws = '1' else (others => '0');
+	new_win(0) <= "00000" & win(0, 0);
 	new_win(1) <= "00000" & win(0, 1) when ws = '1' else (others => '0');
 	new_win(2) <= "00000" & win(0, 2) when ws = '1' else (others => '0');
 	new_win(3) <= "00000" & win(0, 3) when ws = '1' else (others => '0');

@@ -15,7 +15,7 @@ architecture acc_arch of acc is
 	signal conv_data, pool_data : std_logic_vector(7 downto 0);
 begin
 	conv : entity work.conv
-		port map(clk, win, fil,ws, conv_data);
+		port map(clk, win, fil, conv_data);
 	pool : entity work.pool
 		port map(clk, ws, win, pool_data);
 	data <= conv_data when algo  = '0' else pool_data;

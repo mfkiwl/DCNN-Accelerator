@@ -14,6 +14,6 @@ architecture pool_arch of pool is
 	signal adderOut : std_logic_vector(12 downto 0);
 begin
 	adder : entity work.adder
-		port map(win,ws, adderOut);
+		port map(win, adderOut);
 	data <= adderOut(10 downto 3) when ws = '0' else adderOut(12 downto 5);
 end pool_arch;

@@ -13,6 +13,6 @@ architecture internal_buffer_beta_arch of internal_buffer_beta is
 	
 begin
 	l : for i in 0 to n - 1 generate
-		u : entity work.dff_beta port map(buffer_in(i), rst, clk, en, buffer_out(i), initial_val(i));
+		u : entity work.dff_beta port map(buffer_in(i), rst, clk, '1', buffer_out(i), initial_val(i));
 	end generate;
 end internal_buffer_beta_arch;
