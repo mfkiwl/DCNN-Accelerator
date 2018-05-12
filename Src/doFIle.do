@@ -6,5 +6,6 @@ force -freeze sim:/main/algo 0 0
 force -freeze sim:/main/ws 1 0
 force -freeze sim:/main/start 0 0
 force -freeze sim:/main/stride 0 0
-run
+run 100 ns
 force -freeze sim:/main/start 1 0
+run 44453500 ns

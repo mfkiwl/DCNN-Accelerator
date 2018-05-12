@@ -14,7 +14,7 @@ entity dma is
 end entity dma;
 
 architecture dma_arch of dma is
-	signal addr_d, addr_q, mar, addr_inc,mar_d : std_logic_vector(17 downto 0);
+	signal addr_d, addr_q, mar, addr_inc,mar_d,addr_inc_last : std_logic_vector(17 downto 0);
 	signal addr_new, new_row ,init_addr            : std_logic_vector(17 downto 0);
 	signal wr_addr_d, wr_addr            : std_logic_vector(17 downto 0);
 	signal mdr, mdr_tmp                  : std_logic_vector(39 downto 0);
@@ -51,7 +51,8 @@ begin
 
 	-- TODO calculate endof_row
 	addr_inc  <= std_logic_vector(unsigned(addr_q) + stride_val);
-	endof_row <= '0' when addr_inc(17 downto 8) = addr_q(17 downto 8) else '1';
+	addr_inc_last  <= std_logic_vector(unsigned(addr_q) + stride_val + unsigned(init_cnt) - 1);
+	endof_row <= '0' when addr_inc_last(17 downto 8) = addr_q(17 downto 8) else '1';
 	new_row   <= std_logic_vector(unsigned(addr_q(17 downto 8)) + 1) & x"00";
 
 	addr_new <= new_row when endof_row = '1' else addr_inc;
