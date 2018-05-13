@@ -35,6 +35,12 @@ begin
 	begin
 		if reset = '1' then
 			state <= 0;
+			cnt <= init_cnt;
+			dma_start <= '0';
+			read_win  <= '0';
+			done      <= '0';
+			ram_we <= '0';
+			acc_start <= '0';
 		elsif state = 0 then
 			if start = '1' then
 				cnt       <= init_cnt;

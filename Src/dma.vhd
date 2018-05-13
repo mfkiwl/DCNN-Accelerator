@@ -22,13 +22,17 @@ architecture dma_arch of dma is
 	signal endof_row                                           : std_logic;
 	signal cnt, init_cnt, cnt_d                                : std_logic_vector(2 downto 0);
 	signal stride_val                                          : integer;
-	constant columns                                           : integer                       := 256;
-	constant outp_addr                                         : std_logic_vector(17 downto 0) := "010000000000100000";
-	constant filter_addr                                       : std_logic_vector(17 downto 0) := "010000000000000000";
-	constant inpt_addr                                         : std_logic_vector(17 downto 0) := "000000000000000000";
+
+	signal outp_addr                                         : std_logic_vector(17 downto 0) := "010000000000100000";
+	signal filter_addr                                       : std_logic_vector(17 downto 0) := "010000000000000000";
+	signal inpt_addr                                         : std_logic_vector(17 downto 0) := "000000000000000000";
 	signal done_s, done_wr_s, enable_mar                       : std_logic                     := '0';
 	signal state                                               : integer                       := 0;
 begin
+	outp_addr <= "010000000000100000";
+	filter_addr <= "010000000000000000";
+	inpt_addr <= "000000000000000000";
+	
 	ram : entity work.ram
 		port map(clk, ram_we, mar, wr_addr, cell_to_write, mdr);
 	cache : entity work.cache
